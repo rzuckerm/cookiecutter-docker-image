@@ -4,7 +4,7 @@ Cookiecutter template for making docker image repos. Run this in the
 directory where you want to create a docker image repository:
 
 ```
-cookiecutter .
+cookiecutter https://github.com/rzuckerm/cookiecutter-docker-image
 ```
 
 Enter the following:
