@@ -1,0 +1,2 @@
+/*-docker-image
+!/{{ cookiecutter.language_name }}-docker-image

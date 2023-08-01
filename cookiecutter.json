@@ -1,0 +1,7 @@
+{
+    "language_name": "",
+    "language_extension": "",
+    "language_url": "",
+    "__language_uppercase": "{{ cookiecutter.language_name.upper() }}",
+    "__language_title": "{{ cookiecutter.language_name.title() }}"
+}
