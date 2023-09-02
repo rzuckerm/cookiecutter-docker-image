@@ -1,4 +1,5 @@
 {{ cookiecutter.__language_uppercase }}_VERSION := $(shell cat {{ cookiecutter.__language_uppercase }}_VERSION)
+{{ cookiecutter.__language_uppercase }}_DEPS := $(wildcard {{ cookiecutter.__language_uppercase }}_*)
 DOCKER_TAG_PREFIX := rzuckerm/{{ cookiecutter.language_name }}:$({{ cookiecutter.__language_uppercase }}_VERSION)
 DOCKER_TAG_SUFFIX ?= -dev
 
@@ -14,7 +15,7 @@ help:
 
 .PHONY: build
 build: $(META_BUILD_TARGET)
-$(META_BUILD_TARGET): Dockerfile
+$(META_BUILD_TARGET): Dockerfile Makefile $({{ cookiecutter.__language_uppercase }}_DEPS)
 	@echo "*** Building $(DOCKER_TAG_PREFIX)$(DOCKER_TAG_SUFFIX) ***"
 	docker rmi -f $(DOCKER_TAG_PREFIX)$(DOCKER_TAG_SUFFIX)
 	docker build -t $(DOCKER_TAG_PREFIX)$(DOCKER_TAG_SUFFIX) -f Dockerfile .
